@@ -7,14 +7,34 @@ import { Course } from '../model/course';
   styleUrls: ['./course-card.component.css']
 })
 export class CourseCardComponent {
+
   @Input() course: Course;
+  @Input() cardIndex: number;
 
   @Output()
   courseSelected = new EventEmitter<Course>()
+
 
   onCourseView(){
     console.log('Course-card component - View Course button clicked')
 
     this.courseSelected.emit(this.course)
   }
+
+  /**ngIf function */
+  // isImageVisible(){
+  //   return this.course.iconUrl && this.course
+  // }
+
+  /**ngClass function */
+  // cardClasses(){
+  //   if(this.course.category == 'BEGINNER'){
+  //     return 'beginner';
+  //   }
+  // }
+
+  /**ngStyle function */
+  // cardStyle(){
+  //   return {'text-decoration': 'underline'}
+  // }
 }
