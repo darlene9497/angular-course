@@ -1,6 +1,8 @@
-import { AfterViewInit, Component, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, QueryList, ViewChild, ViewChildren, ContentChild } from '@angular/core';
+import { ElementRef } from 'react';
 import { COURSES } from '../db-data';
 import { CourseCardComponent } from './course-card/course-card.component';
+import { CourseImageComponent } from './course-image/course-image.component';
 import { Course } from './model/course';
 
 @Component({
@@ -10,14 +12,21 @@ import { Course } from './model/course';
 })
 export class AppComponent implements AfterViewInit {
 
+  ngAfterViewInit(): void {
+    throw new Error('Method not implemented.');
+  }
+
   courses = COURSES;
 
   @ViewChildren(CourseCardComponent)
   cards: QueryList<CourseCardComponent>
 
-  ngAfterViewInit() {
-    console.log(this.cards)
-  }
+  @ContentChild(CourseImageComponent)
+  image: CourseImageComponent;
+
+  // ngAfterViewInit() {
+  //   console.log(this.cards)
+  // }
 
   // @ViewChild(CourseCardComponent)
   // card: CourseCardComponent
@@ -33,7 +42,7 @@ export class AppComponent implements AfterViewInit {
 
   // course = COURSES[0]
 
-  onCourseSelected(course:Course){
-    //console.log("App component - button clicked...", course)
-  }
+  // onCourseSelected(course:Course){
+  //   //console.log("App component - button clicked...", course)
+  // }
 }

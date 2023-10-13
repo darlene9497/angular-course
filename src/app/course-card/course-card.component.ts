@@ -16,8 +16,6 @@ export class CourseCardComponent {
 
 
   onCourseView(){
-    console.log('Course-card component - View Course button clicked')
-
     this.courseSelected.emit(this.course)
   }
 
